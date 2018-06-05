@@ -64,10 +64,10 @@ dataset = pandas.read_csv('yeast.data', names=names, delim_whitespace=True)
 
 
 # shape
-#print(dataset.shape)
+print(dataset.shape)
 
 # head
-#print(dataset.head(5))
+print(dataset.head(5))
 
 array = dataset.values
 X = array[:,0:7]
