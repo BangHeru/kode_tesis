@@ -81,5 +81,5 @@ for kode in labels_true:
         target.append(indek[kode])
         #print indek[kode]
 target = np.array(target)
-#print(labels_true)
+print(labels_true)
 print(target)
