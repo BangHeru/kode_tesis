@@ -28,7 +28,7 @@ centers = [[1, 1], [-1, -1], [1, -1], [-1, 1]]
 X, labels_true = make_blobs(n_samples=15, centers=centers, cluster_std=0.5,
                             random_state=0)
 """
-print labels_true
+#print labels_true
 """
 X = [
         [3, 4, 3, 2], 
@@ -57,8 +57,8 @@ iris = datasets.load_iris()
 # #############################################################################
 # Compute Affinity Propagation
 #af = AffinityPropagation(preference=-50).fit(X)
-#af = AffinityPropagation().fit(X)
-af = AdapAffinityPropagation().fit(X)
+af = AffinityPropagation().fit(X)
+#af = AdapAffinityPropagation().fit(X)
 cluster_centers_indices = af.cluster_centers_indices_
 labels = af.labels_
 
