@@ -10,7 +10,7 @@ import numpy as np
 # #############################################################################
 # Generate sample data
 
-names = ['Sequence Name','mcg', 'gvh', 'alm', 'mit', 'erl','pox','vac','nuc']
+""" names = ['Sequence Name','mcg', 'gvh', 'alm', 'mit', 'erl','pox','vac','nuc']
 dataset = pandas.read_csv('yeast.data', names=names, delim_whitespace=True)
 array = dataset.values
 X = array[:,0:7]
@@ -21,7 +21,7 @@ for kode in name:
         target.append(indek[kode])
 
 labels_true = np.array(target)
-
+ """
 
 """
 centers = [[1, 1], [-1, -1], [1, -1], [-1, 1]]
@@ -31,14 +31,23 @@ X, labels_true = make_blobs(n_samples=15, centers=centers, cluster_std=0.5,
 #print labels_true
 """
 X = [
-        [3, 4, 3, 2], 
-        [4, 3, 5, 1],
-        [3, 5, 3, 3],
-        [2, 1, 3, 3],
-        [1, 1, 3, 2]
+        [5.1, 3.5, 1.4, 0.2], 
+        [4.9, 3, 1.4, 0.2],
+        [7, 3.2, 4.7, 1.4],
+        [6.3, 3.3, 6, 2.5]
         ]
-labels_true = [1, 1, 1, 2, 2]
+labels_true = [1, 1, 2, 3]
 """
+"""
+X = [
+      [1.4, 2.1],
+      [-0.06, -1.4],
+      [1.4, -1.0],
+      [1.8, 1.2]
+]
+"""
+labels_true = [1, 2, 2, 1]
+
 data_wine = datasets.load_wine()
 digits = datasets.load_digits()
 iris = datasets.load_iris()
@@ -46,8 +55,8 @@ iris = datasets.load_iris()
 #X = digits.data
 #labels_true = digits.target
 
-#X = iris.data
-#labels_true = iris.target
+X = iris.data
+labels_true = iris.target
 
 
 #X = data_wine.data
@@ -57,8 +66,8 @@ iris = datasets.load_iris()
 # #############################################################################
 # Compute Affinity Propagation
 #af = AffinityPropagation(preference=-50).fit(X)
-af = AffinityPropagation().fit(X)
-#af = AdapAffinityPropagation().fit(X)
+#af = AffinityPropagation().fit(X)
+af = AdapAffinityPropagation().fit(X)
 cluster_centers_indices = af.cluster_centers_indices_
 labels = af.labels_
 
@@ -91,6 +100,10 @@ print("iteration : ", af.n_iter_)
 # #############################################################################
 
 # Plot result
+#data = pandas.DataFrame(af.SM)
+#data.to_csv('similarity.csv')
+#print data
+
 
 import matplotlib.pyplot as plt
 from itertools import cycle
