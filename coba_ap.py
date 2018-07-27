@@ -123,5 +123,7 @@ for k, col in zip(range(n_clusters_), colors):
         plt.plot([cluster_center[0], x[0]], [cluster_center[1], x[1]], col)
 
 plt.title('Estimated number of clusters: %d' % n_clusters_)
+plt.xlabel('Sepal Length')
+plt.ylabel('Sepal Width')
 plt.show()
 
